@@ -2,3 +2,26 @@
     font-family: "arial";
 }
 
+table {
+    background-color: rgb(50, 100, 85);
+    width: 220px;
+}
+
+caption {
+    background-color: rgb(50, 100, 85);
+    color: #ffffff;
+    font-size: 18pt;
+}
+
+th {
+    font-size: 12pt;
+    color: #ffffff;
+}
+
+td {
+    text-align: center;
+}
+
+.rowLabel {
+    color: #ffffff;
+}
