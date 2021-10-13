@@ -12,6 +12,7 @@
     background-color: rgb(50, 100, 85);
     color: #ffffff;
     font-size: 15pt;
+    font-weight: bold;
 }
 
 th {
@@ -44,11 +45,14 @@ th {
 .controlCenter {
     background-color: #000000;
     color: #ffffff;
-    width: 300px;
+    width: 275px;
+    padding: 20px;
+    border-radius: 10px;
+    border: outset;
 }
 
 .ctrlName {
-    font-size: 15pt;
+    font-size: 13pt;
     color: #ffffff;
     background-color: #000000;
 }
