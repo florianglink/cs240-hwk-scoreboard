@@ -44,15 +44,30 @@ function initializeListeners() {
     document.querySelector("#addRun").addEventListener("click", function() {
         var team = document.querySelector("#team");
         var inning = document.querySelector("#inning");
-        if(team.value == "Away"){
-            awayScores[inning.value-1].innerHTML+=1;
+        if(team.value == "away"){
+            awayScores[inning.value-1].innerHTML++;
             document.querySelector("td[name='awayTotal']").innerHTML = getTotal(awayScores);
         }
-        else if(team.value == "Home"){
-            homeScores[inning.value-1].innerHTML+=1;
+        else if(team.value == "home"){
+            homeScores[inning.value-1].innerHTML++;
             document.querySelector("td[name='homeTotal']").innerHTML = getTotal(homeScores);
         }
     });
+
+    document.querySelector("#subtractRun").addEventListener("click", function() {
+        var team1 = document.querySelector("#team");
+        var inning1 = document.querySelector("#inning");
+        if(team1.value == "away" && 0<awayScores[inning1.value-1].innerHTML){
+            awayScores[inning1.value-1].innerHTML--;
+            document.querySelector("td[name='awayTotal']").innerHTML = getTotal(awayScores);
+        }
+        else if(team1.value == "home" && 0<homeScores[inning1.value-1].innerHTML){
+            homeScores[inning1.value-1].innerHTML--;
+            document.querySelector("td[name='homeTotal']").innerHTML = getTotal(homeScores);
+        }
+    });
+
+    //document.querySelector("button{name = ''")
 }
  getAwayScoreArray();
  getHomeScoreArray();
@@ -63,5 +78,6 @@ function initializeListeners() {
 //  homeScores[2].innerHTML = 2;
 
  getTotal(awayScores);
- getTotal(homeScores);
+ console.log(getTotal(awayScores));
  initializeListeners();
+console.dir(document.querySelector("td[name='awayTotal']"));
