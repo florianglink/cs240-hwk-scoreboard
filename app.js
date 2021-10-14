@@ -5,6 +5,9 @@
 
  var awayScores = [];
  var homeScores = [];
+ var effects = ["sounds/charge1.mp3", "sounds/charge2.mp3", "sounds/buildup.mp3"];
+ var images = ["images/ups.png", "images/megaphone.png"];
+
 
  function getAwayScoreArray() {
      var score = document.querySelectorAll("td[name ^= 'awayScore_']")
@@ -67,7 +70,10 @@ function initializeListeners() {
         }
     });
 
-    //document.querySelector("button{name = ''")
+    document.querySelector("#playSound").addEventListener("click", function() {
+        (new Audio(effects[Math.floor(Math.random()*effects.length)])).play();
+        document.querySelector("img").src = images[Math.floor(Math.random()*images.length)];
+    });
 }
  getAwayScoreArray();
  getHomeScoreArray();
