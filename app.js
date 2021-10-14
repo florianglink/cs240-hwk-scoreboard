@@ -7,6 +7,7 @@
  var homeScores = [];
  var effects = ["sounds/charge1.mp3", "sounds/charge2.mp3", "sounds/buildup.mp3"];
  var images = ["images/ups.png", "images/megaphone.png"];
+ var song = "sounds/chickendance.mp3";
 
 
  function getAwayScoreArray() {
@@ -30,18 +31,6 @@ function getTotal(values) {
     }
     return total;
 }
-//  function getScoreTotals() {
-//      var awayTotal=0;
-//      var homeTotal=0;
-//      for(var i=0; i<awayScores.length; i++) {
-//          awayTotal+=parseInt(awayScores[i].innerHTML);
-//      }
-//      for(var i=0; i<homeScores.length; i++) {
-//          homeTotal+=parseInt(homeScores[i].innerHTML);
-//      }
-//      document.querySelector("td[name='awayTotal']").innerHTML = awayTotal;
-//      document.querySelector("td[name='homeTotal']").innerHTML = homeTotal;
-//  }
 
 function initializeListeners() {
     document.querySelector("#addRun").addEventListener("click", function() {
@@ -74,16 +63,12 @@ function initializeListeners() {
         (new Audio(effects[Math.floor(Math.random()*effects.length)])).play();
         document.querySelector("img").src = images[Math.floor(Math.random()*images.length)];
     });
+
+    document.querySelector("#playSong").addEventListener("click", function() {
+        (new Audio(song)).play();
+        document.querySelector("img").src = "images/sdchicken.jpg";
+    });
 }
  getAwayScoreArray();
  getHomeScoreArray();
-
-//  awayScores[1].innerHTML = 1;
-//  awayScores[2].innerHTML = 1;
-//  homeScores[1].innerHTML = 3;
-//  homeScores[2].innerHTML = 2;
-
- getTotal(awayScores);
- console.log(getTotal(awayScores));
  initializeListeners();
-console.dir(document.querySelector("td[name='awayTotal']"));
