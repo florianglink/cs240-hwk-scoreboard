@@ -3,13 +3,14 @@
  * @author Florian Godfrey Link 
  */
 
+//instantiaate the score arrays and the effects/song/images
  var awayScores = [];
  var homeScores = [];
  var effects = ["sounds/charge1.mp3", "sounds/charge2.mp3", "sounds/buildup.mp3"];
  var images = ["images/ups.png", "images/megaphone.png"];
  var song = "sounds/chickendance.mp3";
 
-
+//accumulate the away score cells into the array instantiated above
  function getAwayScoreArray() {
      var score = document.querySelectorAll("td[name ^= 'awayScore_']")
      for(i=0; i<score.length; i++) {
@@ -17,12 +18,18 @@
      }
  }
 
+ //accumulate the home score cells into the array instantiated above
  function getHomeScoreArray() {
      var score = document.querySelectorAll("td[name ^= 'homeScore_'")
      for(i=0; i<score.length; i++) {
          homeScores.push(score[i]);
      }
  }
+
+/**
+*Sums the inner HTML values for a given set of cells
+*@param values the group of cells to be summed
+*/
 
 function getTotal(values) {
     var total=0;
@@ -32,6 +39,9 @@ function getTotal(values) {
     return total;
 }
 
+/**
+*Set up all of the event listeners to increment a run cell and update the totals, and to play sound effects and songs
+*/
 function initializeListeners() {
     document.querySelector("#addRun").addEventListener("click", function() {
         var team = document.querySelector("#team");
@@ -69,6 +79,8 @@ function initializeListeners() {
         document.querySelector("img").src = "images/sdchicken.jpg";
     });
 }
+
+//startup
  getAwayScoreArray();
  getHomeScoreArray();
  initializeListeners();
